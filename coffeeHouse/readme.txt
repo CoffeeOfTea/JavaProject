@@ -1,1 +1,0 @@
-全局application实现最丑陋的聊天室
