@@ -1,0 +1,14 @@
+create database diary
+go;
+create table logrecord(
+	id int identity primary key,
+	mood varchar(20),
+	title text,
+	details text,
+	logdate varchar(35),
+	delflag int,
+) ;
+ insert into logrecord(mood,title,details,logdate,delflag) 
+  values('1','1','1','1','1'), 
+  ('1','1','1','1','1'), 
+ ('3','1','1','1','1');
