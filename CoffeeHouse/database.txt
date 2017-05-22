@@ -1,0 +1,14 @@
+create database coffeehouse;
+use coffeehouse;
+
+create table user(
+	id int primary key auto_increment,
+	username varchar(20),
+	password varchar(20),
+	type varchar(20)
+);
+
+insert into user values (null,'1','1','admin');
+insert into user values (null,'2','2','user');
+insert into user values (null,'3','3','user');
+insert into user values (null,'4','4','user');
