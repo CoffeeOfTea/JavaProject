@@ -1,4 +1,4 @@
-<%@page import="java.util.List"%>
+﻿<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -131,6 +131,7 @@
 			</c:forEach>
 			<div align="center">
 				<ul class="pagination">
+<c:if test="${pb.totalPage>2 }">
 				<c:if test="${pb.currPage != 1 }">
 					<li><a href="${pageContext.request.contextPath }/findAll?currPage=1">&laquo;</a></li>	
 					<li><a href="${pageContext.request.contextPath }/findAll?currPage=${pb.currPage-1}">&lsaquo;</a></li>
@@ -144,6 +145,13 @@
 				<c:if test="${pb.currPage != pb.totalPage }">
 					<li><a href="${pageContext.request.contextPath }/findAll?currPage=${pb.currPage+1}">&rsaquo;</a></li>
 					<li><a href="${pageContext.request.contextPath }/findAll?currPage=${pb.totalPage}">&raquo;</a></li>
+				</c:if>
+</c:if>
+<c:if test="${pb.totalPage<=2 }">
+					<c:forEach begin="1" end="${pb.totalPage }" var="n">
+						<c:if test="${pb.currPage == n }"><li class="active"><a href="${pageContext.request.contextPath }/findAll?currPage=${n}">${n }</a></li></c:if>
+						<c:if test="${pb.currPage != n }"><li><a href="${pageContext.request.contextPath }/findAll?currPage=${n}">${n }</a></li></c:if>
+					</c:forEach>
 				</c:if>
 				</ul>
 			</div>
